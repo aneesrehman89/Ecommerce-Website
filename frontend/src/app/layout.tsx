@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@//components/Navbar";
-import Login from "@//pages/login";
-import Register from "@//pages/register";
+import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -19,9 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body cz-shortcut-listen="true">
         <Providers>
-          <Navbar />
-          <Login />
-          <Register />
+          <ClientNavbar />
           {children}
         </Providers>
       </body>

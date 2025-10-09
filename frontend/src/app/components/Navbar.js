@@ -24,10 +24,10 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         {!userInfo ? (
           <>
-            <Link href="/login" className="hover:underline">
+            <Link href="/login?mode=login" className="hover:underline">
               Login
             </Link>
-            <Link href="/register" className="hover:underline">
+            <Link href="/login?mode=register" className="hover:underline">
               Sign Up
             </Link>
           </>
