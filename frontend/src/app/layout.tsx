@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@//components/Navbar";
-import Login from "@//pages/login";
-import Register from "@//pages/register";
+import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "My Ecommerce App",
-  description: "Next.js + Redux Toolkit + Tailwind CSS Ecommerce",
+  title: "SAYA - Fashion & Lifestyle",
+  description: "SAYA - Premium Pakistani Fashion & Lifestyle Brand",
 };
 
 export default function RootLayout({
@@ -19,9 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body cz-shortcut-listen="true">
         <Providers>
-          <Navbar />
-          <Login />
-          <Register />
+          <ClientNavbar />
           {children}
         </Providers>
       </body>

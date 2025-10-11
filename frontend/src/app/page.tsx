@@ -1,36 +1,61 @@
 "use client";
 
-import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
+import HeroBanner from "./components/HeroBanner";
+import FilterSortBar from "./components/FilterSortBar";
+import ProductCard from "./components/ProductCard";
+import Footer from "./components/Footer";
+import { mockHomePageData } from "./homePageMockData";
 
 export default function Home() {
-  const { userInfo } = useSelector((state: any) => state.user);
-  const router = useRouter();
+  const [sortValue, setSortValue] = useState("date-new-old");
+  const [products, setProducts] = useState(mockHomePageData.products);
 
-  useEffect(() => {
-    if (!userInfo) {
-      router.push("/login");
+  const handleSortChange = (value: string) => {
+    setSortValue(value);
+    let sortedProducts = [...products];
+
+    switch (value) {
+      case "date-new-old":
+        // Keep original order
+        sortedProducts = [...mockHomePageData.products];
+        break;
+      case "date-old-new":
+        sortedProducts = [...mockHomePageData.products].reverse();
+        break;
+      case "price-low-high":
+        sortedProducts.sort((a, b) => a.salePrice - b.salePrice);
+        break;
+      case "price-high-low":
+        sortedProducts.sort((a, b) => b.salePrice - a.salePrice);
+        break;
     }
-  }, [userInfo]);
 
-  if (!userInfo) return null; // avoid flashing before redirect
+    setProducts(sortedProducts);
+  };
 
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <h1 className="text-2xl font-bold">Welcome, {userInfo.name}!</h1>
-        <p className="text-gray-600">You are now logged in 🚀</p>
-      </main>
+    <div className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <HeroBanner hero={mockHomePageData.hero} />
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Filter and Sort Bar */}
+        <FilterSortBar onSortChange={handleSortChange} />
+
+        {/* Product Grid */}
+        <div className="py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
