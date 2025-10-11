@@ -4,8 +4,8 @@ import ClientNavbar from "@/components/ClientNavbar"; // Import the new client c
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "My Ecommerce App",
-  description: "Next.js + Redux Toolkit + Tailwind CSS Ecommerce",
+  title: "SAYA - Fashion & Lifestyle",
+  description: "SAYA - Premium Pakistani Fashion & Lifestyle Brand",
 };
 
 export default function RootLayout({
