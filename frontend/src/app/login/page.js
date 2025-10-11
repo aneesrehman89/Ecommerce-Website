@@ -1,5 +1,3 @@
-// src/app/login/page.js or page.tsx
-
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -32,12 +30,12 @@ export default function AuthPage() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center">
         {/* Logo */}
-        <div className="mb-6">
+        <div className="mb-4">
           <Image
             src="/asset/brandLogo"
             alt="Logo"
-            width={320}
-            height={96}
+            width={220}
+            height={66}
             className="mx-auto"
           />
         </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
-import { Providers } from "./providers";
+import { Providers } from "./store/providers";
 
 export const metadata: Metadata = {
   title: "SAYA - Fashion & Lifestyle",
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-locator-client-url="chrome-extension://npbfdllefekhdplbkdigpncggmojpefi/client.bundle.js">
       <body cz-shortcut-listen="true">
         <Providers>
           <ClientNavbar />

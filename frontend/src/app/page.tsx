@@ -5,7 +5,7 @@ import HeroBanner from "./components/HeroBanner";
 import FilterSortBar from "./components/FilterSortBar";
 import ProductCard from "./components/ProductCard";
 import Footer from "./components/Footer";
-import { mockHomePageData } from "./homePageMockData";
+import { mockHomePageData } from "./data/homePageMockData";
 
 export default function Home() {
   const [sortValue, setSortValue] = useState("date-new-old");

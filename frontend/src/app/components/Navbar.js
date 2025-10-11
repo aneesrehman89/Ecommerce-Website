@@ -36,6 +36,9 @@ export default function Navbar() {
                 className="h-10 w-auto"
               />
             </div>
+            <h1 className="text-2xl font-bold text-gray-800 tracking-wide uppercase pl-2">
+              Coming Soon...
+            </h1>
           </Link>
 
           {/* Right: Navigation Items */}
