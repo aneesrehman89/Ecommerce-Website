@@ -8,8 +8,6 @@ import SearchIcon from "./icons/SearchIcon";
 import AccountIcon from "./icons/AccountIcon";
 import WishlistIcon from "./icons/WishlistIcon";
 import CartIcon from "./icons/CartIcon";
-import brandlogo from '../../../public/asset/brandLogo.png'
-
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,7 +32,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-center">
               <Image
-                src={brandlogo}
+                src="/asset/brandLogo.png"
                 alt="SAYA Logo"
                 width={80}
                 height={40}
