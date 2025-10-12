@@ -247,31 +247,31 @@ export default function Footer() {
             </div>
 
             {/* Payment Methods */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
                 alt="Visa"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
                 alt="PayPal"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
                 alt="Mastercard"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg"
                 alt="American Express"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg"
                 alt="Discover"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
             </div>
           </div>
