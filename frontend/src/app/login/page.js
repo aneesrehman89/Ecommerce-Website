@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import AuthForm from "@/components/AuthForm";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import brandlogo from '../../../public/asset/brandLogo.png'
 
 export default function AuthPage() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export default function AuthPage() {
         {/* Logo */}
         <div className="mb-4">
           <Image
-            src="/asset/brandLogo"
+            src={brandlogo}
             alt="Logo"
             width={220}
             height={66}

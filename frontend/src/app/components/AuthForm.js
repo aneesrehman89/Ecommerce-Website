@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import EyeIcon from "@/components/icons/EyeIcon";
 import { useState } from "react";
 
+
+
 export default function AuthForm({
   type,
   onSubmit,
