@@ -32,7 +32,7 @@ export default function AuthPage() {
         {/* Logo */}
         <div className="mb-4">
           <Image
-             src="/asset/brandLogo.png"
+            src="/asset/AMLogo.png"
             alt="Logo"
             width={220}
             height={66}

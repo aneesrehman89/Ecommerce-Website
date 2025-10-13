@@ -45,10 +45,10 @@ export default function Footer() {
                 href="mailto:sales@saya.pk"
                 className="text-sm text-gray-700 hover:text-gray-900"
               >
-                sales@saya.pk
+                Info@amboutique.pk
               </a>
             </div>
-            <p className="text-sm text-gray-700">+9221 3422 (7992)</p>
+            <p className="text-sm text-gray-700">+92 321 9570971</p>
           </div>
 
           {/* Customer Care */}
@@ -279,7 +279,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="mt-8 text-center">
             <p className="text-xs text-gray-500">
-              Copyright © 2025 SAYA all rights reserved. Powered by Alchemative
+              Copyright © 2025 amboutique all rights reserved. Powered by Alchemative
             </p>
           </div>
         </div>
