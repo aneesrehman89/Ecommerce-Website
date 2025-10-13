@@ -9,7 +9,8 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  "https://amboutique.pk",                 
+  "https://amboutique.pk",
+  "https://ecommerce-website-backend-iota.vercel.app",                 
   "http://localhost:3000"                  
 ];
 
@@ -33,5 +34,20 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.send("API is running..."));
 app.use("/api/users", userRoutes);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: err.message || "Internal Server Error" });
+});
+
+const PORT = process.env.PORT || 5000;
+
+// Only start server if not in Vercel (Vercel handles this)
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 export default app;
