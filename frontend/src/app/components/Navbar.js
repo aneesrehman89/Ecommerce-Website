@@ -26,16 +26,23 @@ export default function Navbar() {
           </button>
 
           {/* Center: Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="flex items-center">
+          <Link
+            href="/"
+            className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3"
+          >
+            <div className="flex items-center justify-center">
               <Image
-                src="/asset/brandLogo"
+                src="/asset/brandLogo.png"
                 alt="SAYA Logo"
                 width={80}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 w-auto sm:h-10 md:h-12 cursor-pointer transition-transform duration-300 hover:scale-105"
               />
             </div>
+
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-800 tracking-wide uppercase text-center sm:text-left">
+              Coming Soon...
+            </h1>
           </Link>
 
           {/* Right: Navigation Items */}

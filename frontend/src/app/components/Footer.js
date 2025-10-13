@@ -45,10 +45,10 @@ export default function Footer() {
                 href="mailto:sales@saya.pk"
                 className="text-sm text-gray-700 hover:text-gray-900"
               >
-                sales@saya.pk
+                Info@amboutique.pk
               </a>
             </div>
-            <p className="text-sm text-gray-700">+9221 3422 (7992)</p>
+            <p className="text-sm text-gray-700">+92 321 9570971</p>
           </div>
 
           {/* Customer Care */}
@@ -247,31 +247,31 @@ export default function Footer() {
             </div>
 
             {/* Payment Methods */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
                 alt="Visa"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
                 alt="PayPal"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
                 alt="Mastercard"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg"
                 alt="American Express"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg"
                 alt="Discover"
-                className="h-6 w-auto"
+                className="h-4 sm:h-6 w-auto"
               />
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="mt-8 text-center">
             <p className="text-xs text-gray-500">
-              Copyright © 2025 SAYA all rights reserved. Powered by Alchemative
+              Copyright © 2025 amboutique all rights reserved. Powered by Alchemative
             </p>
           </div>
         </div>

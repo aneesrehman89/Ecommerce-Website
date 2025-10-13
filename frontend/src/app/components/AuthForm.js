@@ -1,12 +1,24 @@
 "use client";
 import { useForm } from "react-hook-form";
+import EyeIcon from "@/components/icons/EyeIcon";
+import { useState } from "react";
 
-export default function AuthForm({ type, onSubmit, loading, error, hidePassword = false }) {
+
+
+export default function AuthForm({
+  type,
+  onSubmit,
+  loading,
+  error,
+  hidePassword = false,
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <form
@@ -47,27 +59,34 @@ export default function AuthForm({ type, onSubmit, loading, error, hidePassword 
       </div>
 
       {/* Password field */}
-    
-        <div>
-          <input
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
-              },
-              validate: (v) =>
-                /[A-Z]/.test(v) || "Must contain at least one uppercase letter",
-            })}
-            placeholder="Password"
-            type="password"
-            className="border w-full p-2 rounded-md"
-          />
-          {errors.password && (
-            <p className="text-red-500 text-sm">{errors.password.message}</p>
-          )}
-        </div>
-        
+      <div className="relative">
+        <input
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters",
+            },
+          })}
+          placeholder="Password"
+          type={showPassword ? "text" : "password"}
+          className="border w-full p-2 rounded-md pr-10"
+        />
+
+        {/* Toggle button */}
+        <button
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
+          aria-label={showPassword ? "Hide password" : "Show password"}
+        >
+          <EyeIcon isVisible={showPassword} width={20} height={20} />
+        </button>
+
+        {errors.password && (
+          <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+        )}
+      </div>
       {/* Server / API Error */}
       {error && <p className="text-red-600 text-sm">{error}</p>}
 
