@@ -10,9 +10,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://amboutique.pk",
-  "https://www.amboutique.pk",
-  "https://ecommerce-website-frontend-mdiy8371o-aneesrehman89s-projects.vercel.app",
-  "https://ecommerce-website-backend-iota.vercel.app",                 
+  "https://www.amboutique.pk",             
   "http://localhost:3000"                  
 ];
 

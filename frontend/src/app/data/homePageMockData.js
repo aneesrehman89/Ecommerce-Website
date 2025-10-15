@@ -75,5 +75,5 @@ export const mockHomePageData = {
     totalProducts: 6,
     modelImage:
       "https://images.unsplash.com/photo-1558068078-7a6b350aed4a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9kZWwlMjBibGFjayUyMGRyZXNzJTIwdHJhZGl0aW9uYWwlMjBvdXRmaXQlMjBlbWJyb2lkZXJ5fGVufDB8MXx8YmxhY2t8MTc2MDA1MDM5MXww&ixlib=rb-4.1.0&q=85",
-  }
+  },
 };

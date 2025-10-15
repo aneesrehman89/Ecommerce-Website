@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="flex items-center justify-center">
               <Image
                 src="/asset/brandLogo.png"
-                alt="SAYA Logo"
+                alt="ambotique Logo"
                 width={80}
                 height={40}
                 className="h-8 w-auto sm:h-10 md:h-12 cursor-pointer transition-transform duration-300 hover:scale-105"

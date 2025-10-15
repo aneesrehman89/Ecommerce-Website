@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <WhatsAppIcon width={20} height={20} className="text-green-600" />
               <a
-                href="mailto:sales@saya.pk"
+                href="mailto: Info@amboutique.pk"
                 className="text-sm text-gray-700 hover:text-gray-900"
               >
                 Info@amboutique.pk

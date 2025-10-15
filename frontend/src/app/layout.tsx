@@ -4,8 +4,8 @@ import ClientNavbar from "@/components/ClientNavbar"; // Import the new client c
 import { Providers } from "./store/providers";
 
 export const metadata: Metadata = {
-  title: "SAYA - Fashion & Lifestyle",
-  description: "SAYA - Premium Pakistani Fashion & Lifestyle Brand",
+  title: "ambotique - Fashion & Lifestyle",
+  description: "ambotique - Premium Pakistani Fashion & Lifestyle Brand",
 };
 
 export default function RootLayout({
