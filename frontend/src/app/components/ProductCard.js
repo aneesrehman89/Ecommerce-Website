@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import StarIcon from "./icons/StarIcon";
 
 export default function ProductCard({ product }) {
   return (
-    <div className="group relative">
+    <Link href={`/product/${product.id}`} className="group relative block">
       {/* Product Image */}
       <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
         <img
@@ -51,6 +52,6 @@ export default function ProductCard({ product }) {
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
