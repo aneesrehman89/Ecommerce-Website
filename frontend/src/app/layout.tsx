@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
+import SocialMediaFloat from "@/components/SocialMediaFloat";
 import { Providers } from "./store/providers";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Providers>
           <ClientNavbar />
           {children}
+          <SocialMediaFloat />
         </Providers>
       </body>
     </html>
