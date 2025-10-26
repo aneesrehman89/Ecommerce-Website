@@ -1,9 +1,21 @@
 "use client";
-import { useForm } from "react-hook-form";
-import EyeIcon from "@/components/icons/EyeIcon";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import EyeIcon from "@/components/icons/EyeIcon";
 
+interface AuthFormData {
+  name?: string;
+  email: string;
+  password: string;
+}
 
+interface AuthFormProps {
+  type: "login" | "register";
+  onSubmit: SubmitHandler<AuthFormData>;
+  loading: boolean;
+  error: string | null;
+  hidePassword?: boolean;
+}
 
 export default function AuthForm({
   type,
@@ -11,14 +23,14 @@ export default function AuthForm({
   loading,
   error,
   hidePassword = false,
-}) {
+}: AuthFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<AuthFormData>();
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <form

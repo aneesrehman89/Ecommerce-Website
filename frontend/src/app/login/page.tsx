@@ -1,20 +1,28 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "@/store/store";
 import { loginUser, registerUser } from "@/slices/userSlice";
 import { useRouter } from "next/navigation";
 import AuthForm from "@/components/AuthForm";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+interface AuthFormData {
+  name?: string;
+  email: string;
+  password: string;
+}
 
 export default function AuthPage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const { userInfo, loading, error } = useSelector((state) => state.user);
+  const { userInfo, loading, error } = useSelector((state: RootState) => state.user);
 
-  const [authType, setAuthType] = useState("login"); // 'login' or 'register'
+  const [authType, setAuthType] = useState<"login" | "register">("login");
 
-  const handleAuth = (data) => {
+  const handleAuth = (data: AuthFormData): void => {
     if (authType === "login") {
       dispatch(loginUser(data));
     } else {
@@ -59,11 +67,20 @@ export default function AuthPage() {
           hidePassword={authType === "login"} // hide password for login form
         />
 
+        {/* Forgot Password Link */}
+        {authType === "login" && (
+          <div className="text-center mt-3">
+            <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800">
+              Forgot Password?
+            </Link>
+          </div>
+        )}
+
         {/* Switcher buttons */}
         <div className="mt-4">
           {authType === "login" ? (
             <p className="text-sm">
-              Don’t have an account?{" "}
+              Don't have an account?{" "}
               <button
                 onClick={() => setAuthType("register")}
                 className="text-blue-600 hover:underline"

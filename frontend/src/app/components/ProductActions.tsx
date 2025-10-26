@@ -1,12 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
 import WishlistIcon from "./icons/WishlistIcon";
 import FacebookIcon from "./icons/FacebookIcon";
 import TwitterIcon from "./icons/TwitterIcon";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
+
+interface CartData {
+  quantity: number;
+  size: string;
+  color: string;
+  fabric: string;
+}
+
+interface ProductActionsProps {
+  availableSizes: string[];
+  availableColors: string[];
+  availableFabrics: string[];
+  selectedSize: string;
+  selectedColor: string;
+  selectedFabric: string;
+  onAddToCart: (data: CartData) => void;
+  onToggleWishlist: () => void;
+  isInWishlist: boolean;
+}
 
 export default function ProductActions({
   availableSizes,
@@ -18,17 +37,17 @@ export default function ProductActions({
   onAddToCart,
   onToggleWishlist,
   isInWishlist,
-}) {
-  const [selectedSize, setSelectedSize] = useState(initialSize);
-  const [selectedColor, setSelectedColor] = useState(initialColor);
-  const [selectedFabric, setSelectedFabric] = useState(initialFabric);
-  const [quantity, setQuantity] = useState(1);
+}: ProductActionsProps) {
+  const [selectedSize, setSelectedSize] = useState<string>(initialSize);
+  const [selectedColor, setSelectedColor] = useState<string>(initialColor);
+  const [selectedFabric, setSelectedFabric] = useState<string>(initialFabric);
+  const [quantity, setQuantity] = useState<number>(1);
 
-  const handleQuantityChange = (change) => {
+  const handleQuantityChange = (change: number): void => {
     setQuantity((prev) => Math.max(1, prev + change));
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (): void => {
     onAddToCart({
       quantity,
       size: selectedSize,
@@ -117,8 +136,8 @@ export default function ProductActions({
           <input
             type="number"
             value={quantity}
-            onChange={(e) =>
-              setQuantity(Math.max(1, parseInt(e.target.value) || 1))
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))
             }
             className="w-16 text-center border-x border-gray-300 py-2 focus:outline-none"
             min="1"

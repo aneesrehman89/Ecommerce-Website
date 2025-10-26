@@ -4,18 +4,22 @@ import { useState } from "react";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import ChevronRightIcon from "./icons/ChevronRightIcon";
 
-export default function ProductImageGallery({ images }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface ProductImageGalleryProps {
+  images: string[];
+}
 
-  const handlePrevious = () => {
+export default function ProductImageGallery({ images }: ProductImageGalleryProps) {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const handlePrevious = (): void => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  const handleNext = () => {
+  const handleNext = (): void => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const handleThumbnailClick = (index) => {
+  const handleThumbnailClick = (index: number): void => {
     setCurrentIndex(index);
   };
 

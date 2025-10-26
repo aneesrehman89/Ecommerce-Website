@@ -2,6 +2,21 @@
 
 import StarIcon from "./icons/StarIcon";
 
+interface ProductInfoProps {
+  title: string;
+  price: number;
+  sku: string;
+  barcode: string;
+  availability: string;
+  stockCount: number;
+  design: string;
+  color: string;
+  fabric: string;
+  description: string;
+  features: string[];
+  disclaimer: string;
+}
+
 export default function ProductInfo({
   title,
   price,
@@ -15,7 +30,7 @@ export default function ProductInfo({
   description,
   features,
   disclaimer,
-}) {
+}: ProductInfoProps) {
   return (
     <div className="space-y-4">
       {/* Title and Price */}
