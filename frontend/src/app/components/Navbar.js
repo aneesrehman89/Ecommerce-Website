@@ -3,14 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 import MenuIcon from "./icons/MenuIcon";
 import SearchIcon from "./icons/SearchIcon";
 import AccountIcon from "./icons/AccountIcon";
 import WishlistIcon from "./icons/WishlistIcon";
 import CartIcon from "./icons/CartIcon";
+import ShoppingCart from "./cart/ShoppingCart";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);  
+  const cartItemCount = cartItems.length;
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -68,13 +73,18 @@ export default function Navbar() {
               <WishlistIcon width={20} height={20} color="#1a1a1a" />
               <span className="hidden md:inline">WISHLIST</span>
             </Link>
-            <Link
-              href="/cart"
-              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 relative"
             >
               <CartIcon width={20} height={20} color="#1a1a1a" />
               <span className="hidden md:inline">CART</span>
-            </Link>
+              {cartItemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </div>
@@ -107,6 +117,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Shopping Cart Drawer */}
+      <ShoppingCart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </nav>
   );
 }

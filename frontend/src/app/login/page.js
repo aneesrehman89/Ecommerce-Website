@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import AuthForm from "@/components/AuthForm";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AuthPage() {
   const dispatch = useDispatch();
@@ -59,11 +60,20 @@ export default function AuthPage() {
           hidePassword={authType === "login"} // hide password for login form
         />
 
+        {/* Forgot Password Link */}
+        {authType === "login" && (
+          <div className="text-center mt-3">
+            <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800">
+              Forgot Password?
+            </Link>
+          </div>
+        )}
+
         {/* Switcher buttons */}
         <div className="mt-4">
           {authType === "login" ? (
             <p className="text-sm">
-              Don’t have an account?{" "}
+              Don't have an account?{" "}
               <button
                 onClick={() => setAuthType("register")}
                 className="text-blue-600 hover:underline"
