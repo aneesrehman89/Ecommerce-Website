@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import StarIcon from "./icons/StarIcon";
+import type { Product } from "@/types/product";
 
-export default function ProductCard({ product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/product/${product.id}`} className="group relative block">
       {/* Product Image */}
@@ -42,7 +47,7 @@ export default function ProductCard({ product }) {
                   width={16}
                   height={16}
                   color="#fbbf24"
-                  filled={i < product.rating}
+                  filled={i < (product.rating ?? 0)}
                 />
               ))}
             </div>

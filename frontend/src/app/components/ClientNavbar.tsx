@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 
 export default function ClientNavbar() {
-  const pathname = usePathname();
+  const pathname: string = usePathname();
   const hideNavbarRoutes = ["/login", "/register"];
   const showNavbar = !hideNavbarRoutes.includes(pathname);
 

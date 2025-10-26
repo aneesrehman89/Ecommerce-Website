@@ -1,19 +1,32 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "@/store/store";
 import { addToCart } from "@/slices/cartSlice";
 import { toggleWishlist } from "@/slices/wishlistSlice";
 import ProductImageGallery from "@/components/ProductImageGallery";
 import ProductInfo from "@/components/ProductInfo";
 import ProductActions from "@/components/ProductActions";
+import type { ProductDetailsData } from "@/types/product";
 
-export default function ProductDetails({ product }) {
+interface ProductDetailsProps {
+  product: ProductDetailsData;
+}
+
+interface CartData {
+  quantity: number;
+  size: string;
+  color: string;
+  fabric: string;
+}
+
+export default function ProductDetails({ product }: ProductDetailsProps) {
   
-  const dispatch = useDispatch();
-  const wishlistItems = useSelector((state) => state.wishlist.items);  
-  const isInWishlist = wishlistItems.includes(product.id.toString());
+  const dispatch = useDispatch<AppDispatch>();
+  const wishlistItems = useSelector((state: RootState) => state.wishlist.items);  
+  const isInWishlist: boolean = wishlistItems.includes(product.id.toString());
   
-  const handleAddToCart = ({ quantity, size, color, fabric }) => {
+  const handleAddToCart = ({ quantity, size, color, fabric }: CartData): void => {
     dispatch(
       addToCart({
         productId: product.id.toString(),
@@ -30,7 +43,7 @@ export default function ProductDetails({ product }) {
     alert("Product added to cart!");
   };
 
-  const handleToggleWishlist = () => {
+  const handleToggleWishlist = (): void => {
     dispatch(toggleWishlist(product.id.toString()));
   };
 

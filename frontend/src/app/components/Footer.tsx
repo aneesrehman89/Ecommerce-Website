@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import Link from "next/link";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
 import FacebookIcon from "./icons/FacebookIcon";
@@ -8,15 +8,15 @@ import InstagramIcon from "./icons/InstagramIcon";
 import YouTubeIcon from "./icons/YouTubeIcon";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (!email) {
       setEmailError("Email is required");
@@ -195,7 +195,7 @@ export default function Footer() {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setEmail(e.target.value);
                   setEmailError("");
                 }}

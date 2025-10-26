@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 import MenuIcon from "./icons/MenuIcon";
 import SearchIcon from "./icons/SearchIcon";
 import AccountIcon from "./icons/AccountIcon";
@@ -12,10 +13,10 @@ import CartIcon from "./icons/CartIcon";
 import ShoppingCart from "./cart/ShoppingCart";
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartItems = useSelector((state) => state.cart.items);  
-  const cartItemCount = cartItems.length;
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+  const cartItems = useSelector((state: RootState) => state.cart.items);  
+  const cartItemCount: number = cartItems.length;
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">

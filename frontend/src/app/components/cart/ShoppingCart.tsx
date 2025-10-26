@@ -17,7 +17,7 @@ interface ShoppingCartProps {
 export default function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
-
+  
   // Prevent body scroll when cart is open
   useEffect(() => {
     if (isOpen) {

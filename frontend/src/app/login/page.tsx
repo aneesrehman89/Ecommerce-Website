@@ -1,6 +1,7 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "@/store/store";
 import { loginUser, registerUser } from "@/slices/userSlice";
 import { useRouter } from "next/navigation";
 import AuthForm from "@/components/AuthForm";
@@ -8,14 +9,20 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+interface AuthFormData {
+  name?: string;
+  email: string;
+  password: string;
+}
+
 export default function AuthPage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const { userInfo, loading, error } = useSelector((state) => state.user);
+  const { userInfo, loading, error } = useSelector((state: RootState) => state.user);
 
-  const [authType, setAuthType] = useState("login"); // 'login' or 'register'
+  const [authType, setAuthType] = useState<"login" | "register">("login");
 
-  const handleAuth = (data) => {
+  const handleAuth = (data: AuthFormData): void => {
     if (authType === "login") {
       dispatch(loginUser(data));
     } else {
