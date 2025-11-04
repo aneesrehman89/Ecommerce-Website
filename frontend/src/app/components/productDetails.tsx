@@ -21,12 +21,16 @@ interface CartData {
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
-  
   const dispatch = useDispatch<AppDispatch>();
-  const wishlistItems = useSelector((state: RootState) => state.wishlist.items);  
+  const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
   const isInWishlist: boolean = wishlistItems.includes(product.id.toString());
-  
-  const handleAddToCart = ({ quantity, size, color, fabric }: CartData): void => {
+
+  const handleAddToCart = ({
+    quantity,
+    size,
+    color,
+    fabric,
+  }: CartData): void => {
     dispatch(
       addToCart({
         productId: product.id.toString(),
@@ -39,8 +43,6 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         fabric,
       })
     );
-    
-    alert("Product added to cart!");
   };
 
   const handleToggleWishlist = (): void => {
@@ -75,7 +77,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
             <ProductActions
               availableSizes={product.sizes}
-              availableColors={product.colors?.map(c => c.name) || ["GREEN"]}
+              availableColors={product.colors?.map((c) => c.name) || ["GREEN"]}
               availableFabrics={["Scuba"]}
               selectedSize={product.sizes?.[0] || "X-Small"}
               selectedColor={product.colors?.[0]?.name || "GREEN"}
