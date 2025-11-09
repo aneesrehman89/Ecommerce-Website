@@ -6,19 +6,9 @@ export interface OrderDetails {
   productImage: string;
   quantity: number;
   unitPrice: number;
-  unitCurrency: Currency;
   productAmount: number;
-  productAmountCurrency: Currency;
   logisticsFee: number;
-  logisticsFeeCurrency: Currency;
-  orderAmount: number;
-  orderAmountCurrency: Currency;
   transactionFee: number;
-  transactionFeeCurrency: Currency;
-  exchangeRate: number;
-  fromCurrency: Currency;
-  toCurrency: Currency;
-  paymentCurrency: Currency;
   totalAmount: number;
 }
 
@@ -30,13 +20,6 @@ export enum PaymentMethod {
   WIRE_TRANSFER = "wire_transfer",
   TRUSTLY = "trustly",
   GOOGLE_PAY = "google_pay"
-}
-
-// Currency codes
-export enum Currency {
-  USD = "USD",
-  GBP = "GBP",
-  EUR = "EUR"
 }
 
 
@@ -72,4 +55,21 @@ export enum OrderStatus {
   PROCESSING = "processing",
   COMPLETED = "completed",
   FAILED = "failed"
+}
+
+// Card payment details
+export interface CardDetails {
+  cardNumber: string;
+  cardHolderName: string;
+  expiryMonth: string;
+  expiryYear: string;
+  cvv: string;
+}
+
+// Payment response
+export interface PaymentResponse {
+  success: boolean;
+  message: string;
+  transactionId?: string;
+  orderId?: string;
 }

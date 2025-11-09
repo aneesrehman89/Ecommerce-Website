@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import type { OrderDetails } from "../../types/checkout";
-import { formatCurrency, formatExchangeRate, formatOrderNumber } from "../../utils/formatters";
-import InfoIcon from "../icons/InfoIcon";
+import { formatCurrency, formatOrderNumber } from "../../utils/formatters";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 
 interface OrderSummaryCardProps {
@@ -33,7 +31,7 @@ export default function OrderSummaryCard({
             {orderDetails.productName}
           </h3>
           <p className="text-xs text-checkout-gray-600 mb-1">
-            {formatCurrency(orderDetails.unitPrice, orderDetails.unitCurrency)} x {orderDetails.quantity}
+            {formatCurrency(orderDetails.unitPrice)} x {orderDetails.quantity}
           </p>
           <p className="text-xs text-checkout-gray-500">
             {formatOrderNumber(orderDetails.orderNumber)}
@@ -47,45 +45,21 @@ export default function OrderSummaryCard({
         <div className="flex justify-between text-sm">
           <span className="text-checkout-gray-600">Product amount</span>
           <span className="font-medium text-checkout-gray-900">
-            {formatCurrency(orderDetails.productAmount, orderDetails.productAmountCurrency)}
+            {formatCurrency(orderDetails.productAmount)}
           </span>
         </div>
 
         <div className="flex justify-between text-sm">
           <span className="text-checkout-gray-600">Logistics fee</span>
           <span className="font-medium text-checkout-gray-900">
-            {formatCurrency(orderDetails.logisticsFee, orderDetails.logisticsFeeCurrency)}
-          </span>
-        </div>
-
-        <div className="flex justify-between text-sm pt-2 border-t border-border-default">
-          <span className="text-checkout-gray-600">Order amount</span>
-          <span className="font-medium text-checkout-gray-900">
-            {formatCurrency(orderDetails.orderAmount, orderDetails.orderAmountCurrency)}
+            {formatCurrency(orderDetails.logisticsFee)}
           </span>
         </div>
 
         <div className="flex justify-between text-sm">
-          <div className="flex items-center gap-1">
-            <span className="text-checkout-gray-600">Transaction fee</span>
-            <InfoIcon width={14} height={14} color="#9CA3AF" />
-          </div>
+          <span className="text-checkout-gray-600">Transaction fee</span>
           <span className="font-medium text-checkout-gray-900">
-            {formatCurrency(orderDetails.transactionFee, orderDetails.transactionFeeCurrency)}
-          </span>
-        </div>
-
-        <div className="flex justify-between text-sm">
-          <div className="flex items-center gap-1">
-            <span className="text-checkout-gray-600">Exchange rate</span>
-            <InfoIcon width={14} height={14} color="#9CA3AF" />
-          </div>
-          <span className="font-medium text-checkout-gray-900">
-            {formatExchangeRate(
-              orderDetails.fromCurrency,
-              orderDetails.toCurrency,
-              orderDetails.exchangeRate
-            )}
+            {formatCurrency(orderDetails.transactionFee)}
           </span>
         </div>
       </div>
@@ -93,15 +67,10 @@ export default function OrderSummaryCard({
       {/* Total */}
       <div className="pt-4 border-t border-border-default">
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-checkout-gray-600">Pay in</span>
-            <select className="text-sm font-semibold text-checkout-gray-900 border border-border-default rounded px-2 py-1 bg-white">
-              <option>{orderDetails.paymentCurrency}</option>
-            </select>
-          </div>
+          <span className="text-sm text-checkout-gray-600">Total Amount</span>
           <div className="text-right">
-            <div className="text-2xl font-bold text-checkout-gray-900">
-              {formatCurrency(orderDetails.totalAmount, orderDetails.paymentCurrency)}
+            <div className="text-2xl font-bold text-alibaba-orange">
+              {formatCurrency(orderDetails.totalAmount)}
             </div>
           </div>
         </div>
