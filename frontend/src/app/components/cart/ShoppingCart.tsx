@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../store/store";
 import { removeFromCart, updateQuantity } from "../../slices/cartSlice";
@@ -39,9 +40,12 @@ export default function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
     dispatch(removeFromCart(productId));
   };
 
+  const router = useRouter();
+
   const handleCheckout = () => {
-    // TODO: Implement checkout logic
-    alert("Proceeding to checkout...");
+    // Navigate to checkout page
+    router.push("/checkout");
+    onClose();
   };
 
   // Calculate subtotal
