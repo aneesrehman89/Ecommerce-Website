@@ -6,10 +6,11 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 import MenuIcon from "./icons/MenuIcon";
-import SearchIcon from "./icons/SearchIcon";
-import AccountIcon from "./icons/AccountIcon";
-import WishlistIcon from "./icons/WishlistIcon";
 import CartIcon from "./icons/CartIcon";
+import HomeIcon from "./icons/HomeIcon";
+import ProductsIcon from "./icons/ProductsIcon";
+import CheckoutIcon from "./icons/CheckoutIcon";
+import LoginIcon from "./icons/LoginIcon";
 import ShoppingCart from "./cart/ShoppingCart";
 
 export default function Navbar() {
@@ -51,35 +52,42 @@ export default function Navbar() {
             </h1>
           </Link>
 
-          {/* Right: Navigation Items */}
-          <div className="flex items-center gap-6">
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-8">
             <Link
-              href="/search"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              href="/"
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
             >
-              <SearchIcon width={20} height={20} color="#1a1a1a" />
-              <span className="hidden md:inline">SEARCH</span>
+              <HomeIcon width={20} height={20} color="#1a1a1a" />
+              <span>HOME</span>
             </Link>
             <Link
-              href="/account"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              href="/product"
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
             >
-              <AccountIcon width={20} height={20} color="#1a1a1a" />
-              <span className="hidden md:inline">ACCOUNT</span>
+              <ProductsIcon width={20} height={20} color="#1a1a1a" />
+              <span>PRODUCTS</span>
             </Link>
             <Link
-              href="/wishlist"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              href="/checkout"
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
             >
-              <WishlistIcon width={20} height={20} color="#1a1a1a" />
-              <span className="hidden md:inline">WISHLIST</span>
+              <CheckoutIcon width={20} height={20} color="#1a1a1a" />
+              <span>CHECKOUT</span>
+            </Link>
+            <Link
+              href="/login"
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              <LoginIcon width={20} height={20} color="#1a1a1a" />
+              <span>LOGIN</span>
             </Link>
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 relative"
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors relative"
             >
               <CartIcon width={20} height={20} color="#1a1a1a" />
-              <span className="hidden md:inline">CART</span>
+              <span>CART</span>
               {cartItemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {cartItemCount}
@@ -94,26 +102,38 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="px-4 py-4 space-y-3">
+            {/* Page Navigation */}
             <Link
-              href="/search"
+              href="/"
               className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <SearchIcon width={20} height={20} color="#1a1a1a" />
-              <span>SEARCH</span>
+              <HomeIcon width={20} height={20} color="#1a1a1a" />
+              <span>HOME</span>
             </Link>
             <Link
-              href="/account"
+              href="/product"
               className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <AccountIcon width={20} height={20} color="#1a1a1a" />
-              <span>ACCOUNT</span>
+              <ProductsIcon width={20} height={20} color="#1a1a1a" />
+              <span>PRODUCTS</span>
             </Link>
             <Link
-              href="/wishlist"
+              href="/checkout"
               className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <WishlistIcon width={20} height={20} color="#1a1a1a" />
-              <span>WISHLIST</span>
+              <CheckoutIcon width={20} height={20} color="#1a1a1a" />
+              <span>CHECKOUT</span>
+            </Link>
+            <Link
+              href="/login"
+              className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <LoginIcon width={20} height={20} color="#1a1a1a" />
+              <span>LOGIN</span>
             </Link>
           </div>
         </div>
