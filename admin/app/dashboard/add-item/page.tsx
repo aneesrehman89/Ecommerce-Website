@@ -22,7 +22,7 @@ export default function AddItemPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Add New Product</h1>
+      {/* <h1 className="text-3xl font-bold text-gray-900 mb-6">Add New Product</h1> */}
       
       <CreateProductForm
         initialData={mockFormData}

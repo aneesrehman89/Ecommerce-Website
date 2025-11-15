@@ -30,13 +30,13 @@ export default function MediaUploadSection({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 flex gap-2">
       <label className="block text-sm font-medium text-gray-700">
         Media <span className="text-red-500">*</span>
       </label>
 
       {/* Main preview area */}
-      <div className="relative bg-gray-50 border border-gray-300 rounded-lg overflow-hidden aspect-square flex items-center justify-center">
+      <div className=" w-[550px] h-[250px] relative bg-gray-50 border border-gray-300 rounded-lg overflow-hidden aspect-square flex items-center justify-center">
         {primaryMedia ? (
           <>
             <img
