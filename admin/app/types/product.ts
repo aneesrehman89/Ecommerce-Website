@@ -71,3 +71,33 @@ export interface MediaUploadProps {
   onSetPrimary: (id: string) => void;
   maxFiles?: number;
 }
+
+// Products List types
+
+export enum ProductListStatus {
+  PUBLISHED = "Published",
+  DRAFT_LIST = "Draft List",
+  INACTIVE = "Inactive",
+  STOCK_OUT = "Stock Out"
+}
+
+export interface ProductListItem {
+  id: string;
+  name: string;
+  category: string;
+  stock: number | string;
+  price: number;
+  status: ProductListStatus;
+  image: string;
+  stockStatus?: 'normal' | 'low' | 'out';
+}
+
+export interface ProductsListFilters {
+  search: string;
+  dateRange: {
+    start: Date | null;
+    end: Date | null;
+  };
+  status: string;
+  category: string;
+}

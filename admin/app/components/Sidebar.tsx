@@ -50,20 +50,9 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 z-40">
-      {/* Logo */}
-      <div className="p-6 border-b border-gray-200 flex items-center justify-center">
-        <Image
-          src="/amLogo3.png"
-          alt="Admin Logo"
-          width={150}
-          height={60}
-          className="h-12 w-auto"
-        />
-      </div>
-
+    <aside className="hidden md:block w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 z-40">
       {/* Navigation */}
-      <nav className="p-4">
+      <nav className="p-4 pt-6">
         <ul className="space-y-1">
           {navItems.map((item) => (
             <li key={item.id}>
