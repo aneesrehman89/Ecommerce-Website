@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function HeroBanner({ hero }) {
   return (
     <div className="relative w-full bg-[#f5e8d3] overflow-hidden">
@@ -27,7 +29,7 @@ export default function HeroBanner({ hero }) {
 
           {/* Model Image - Center */}
           <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 z-0">
-            <img
+            <Image
               src={hero.modelImage}
               alt="Model wearing collection"
               className="h-[220px] sm:h-[320px] md:h-[340px] lg:h-[550px] w-auto object-cover"
