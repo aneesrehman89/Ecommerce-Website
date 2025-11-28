@@ -3,6 +3,7 @@
 import Link from "next/link";
 import StarIcon from "./icons/StarIcon";
 import type { Product } from "@/types/product";
+import Image from "next/image";
 
 interface ProductCardProps {
   product: Product;
@@ -13,7 +14,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/product/${product.id}`} className="group relative block">
       {/* Product Image */}
       <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
-        <img
+        <Image
           src={product.image}
           alt={product.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

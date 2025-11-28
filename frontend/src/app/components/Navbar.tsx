@@ -39,7 +39,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-center">
               <Image
-                src="/asset/brandLogo.png"
+                src="/asset/amLogo2.png"
                 alt="ambotique Logo"
                 width={80}
                 height={40}
