@@ -60,7 +60,7 @@ export default function ForgotPasswordPage() {
         {success ? (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
             <p className="text-green-800 text-center">
-              Password reset link has been sent to your email. Please check your inbox.
+              Password reset link has been sent to your email. Please check your inbox. It may take 30 seconds to 1 minute.
             </p>
             <Link
               href="/login"
