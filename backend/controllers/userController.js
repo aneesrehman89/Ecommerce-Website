@@ -1,4 +1,4 @@
-import { connectDB } from "../config/db.js";
+// import { connectDB } from "../config/db.js";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 import sendEmail from "../utils/sendEmail.js";
@@ -97,7 +97,7 @@ export const forgotPassword = async (req, res) => {
 export const resetPassword = async (req, res) => {
   try {
     // 💡 Connect to DB first
-    await connectDB();
+    // await connectDB();
 
     const { password } = req.body;
     const { token } = req.params;
