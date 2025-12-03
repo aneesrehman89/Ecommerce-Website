@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/store/store";
 import { loginUser, registerUser } from "@/slices/userSlice";
 import { useRouter } from "next/navigation";
+import brandLogo from "../../../public/asset/amLogo1.png";
 import AuthForm from "@/components/AuthForm";
 import { useEffect, useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,7 +20,9 @@ interface AuthFormData {
 export default function AuthPage() {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const { userInfo, loading, error } = useSelector((state: RootState) => state.user);
+  const { userInfo, loading, error } = useSelector(
+    (state: RootState) => state.user
+  );
 
   const [authType, setAuthType] = useState<"login" | "register">("login");
 
@@ -38,15 +42,17 @@ export default function AuthPage() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center">
         {/* Logo */}
-        <div className="mb-4">
-          <Image
-            src="/asset/AMLogo.png"
-            alt="Logo"
-            width={220}
-            height={66}
-            className="mx-auto"
-          />
-        </div>
+        <Link href={`/`}>
+          <div className="mb-4">
+            <Image
+              src={brandLogo}
+              alt="Logo"
+              width={220}
+              height={66}
+              className="mx-auto"
+            />
+          </div>
+        </Link>
 
         {/* Heading */}
         <h2 className="text-2xl font-semibold mb-1">
@@ -70,7 +76,10 @@ export default function AuthPage() {
         {/* Forgot Password Link */}
         {authType === "login" && (
           <div className="text-center mt-3">
-            <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800">
+            <Link
+              href="/forgot-password"
+              className="text-sm text-blue-600 hover:text-blue-800"
+            >
               Forgot Password?
             </Link>
           </div>

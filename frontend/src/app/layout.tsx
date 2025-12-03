@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-locator-client-url="chrome-extension://npbfdllefekhdplbkdigpncggmojpefi/client.bundle.js">
+    <html lang="en">
       <body cz-shortcut-listen="true">
         <Providers>
           <ClientNavbar />
