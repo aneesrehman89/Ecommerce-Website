@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-locator-target="vscode">
+    <html lang="en">
       <body className="antialiased">{children}</body>
     </html>
   );

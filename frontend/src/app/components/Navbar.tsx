@@ -119,6 +119,18 @@ export default function Navbar() {
               <ProductsIcon width={20} height={20} color="#1a1a1a" />
               <span>PRODUCTS</span>
             </Link>
+            <button
+              className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 relative"
+              onClick={() => setIsCartOpen(true)}
+            >
+              <CartIcon width={20} height={20} color="#1a1a1a" />
+              <span>CART</span>
+               {cartItemCount > 0 && (
+                <span className="absolute -top-[-7px] -right-6 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemCount}
+                </span>
+              )}
+             </button>
             <Link
               href="/checkout"
               className="flex items-center gap-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"

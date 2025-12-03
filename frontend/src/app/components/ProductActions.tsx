@@ -162,7 +162,7 @@ export default function ProductActions({
         {/* Wishlist Button */}
         <button
           onClick={onToggleWishlist}
-          className="p-3 border border-gray-300 hover:bg-gray-100 transition-colors"
+          className="hidden md:flex p-3 border border-gray-300 hover:bg-gray-100 transition-colors"
           aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
         >
           <WishlistIcon
