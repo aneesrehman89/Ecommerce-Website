@@ -206,7 +206,7 @@ export default function CreateProductForm({
             <label className="block text-sm font-medium text-gray-700 mb-2">
               SKU <span className="text-gray-400 font-normal">(Auto-generated)</span>
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
                 value={formData.sku}
@@ -216,7 +216,7 @@ export default function CreateProductForm({
               <button
                 type="button"
                 onClick={() => setFormData({ ...formData, sku: generateSKU() })}
-                className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors whitespace-nowrap"
               >
                 Regenerate
               </button>
@@ -267,7 +267,7 @@ export default function CreateProductForm({
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Stock Quantity <span className="text-red-500">*</span>
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="number"
                 value={formData.stockQuantity}
@@ -278,7 +278,7 @@ export default function CreateProductForm({
               <select
                 value={formData.stockUnit}
                 onChange={(e) => setFormData({ ...formData, stockUnit: e.target.value as StockUnit })}
-                className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white"
+                className="w-full sm:w-auto px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white"
               >
                 {Object.values(StockUnit).map((unit) => (
                   <option key={unit} value={unit}>

@@ -32,15 +32,15 @@ export default function ProductsTableRow({ product, isSelected, onSelect, onDele
         />
       </td>
       <td className="px-6 py-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 min-w-0">
           <Image
             src={product.image}
             alt={product.name}
             width={40}
             height={40}
-            className="rounded-lg object-cover"
+            className="rounded-lg object-cover flex-shrink-0"
           />
-          <span className="text-sm font-medium text-gray-900">{product.name}</span>
+          <span className="text-sm font-medium text-gray-900 break-words line-clamp-2">{product.name}</span>
         </div>
       </td>
       <td className="px-6 py-4 text-sm text-gray-600">{product.category}</td>

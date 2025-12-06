@@ -46,8 +46,8 @@ export default function FiltersBar({
           />
         </div>
 
-        {/* Filters Row - Scrollable on mobile, wrapped on larger screens */}
-        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap -mx-3 px-3 sm:mx-0 sm:px-0">
+        {/* Filters Row - Wrapped on all screen sizes */}
+        <div className="flex gap-2 sm:gap-3 flex-wrap">
           {/* Date Range - Hidden on mobile */}
           <div className="relative flex-shrink-0 hidden sm:block">
             <button className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 whitespace-nowrap">
