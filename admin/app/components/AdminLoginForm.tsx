@@ -74,7 +74,7 @@ export default function AdminLoginForm({
             if (emailError) validateEmail(e.target.value);
           }}
           onBlur={(e) => validateEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="Yasir.amboutique@gmail.com"
           className={`border w-full p-2 rounded-md ${
             emailError ? "border-red-500" : ""
           }`}
@@ -96,7 +96,7 @@ export default function AdminLoginForm({
             if (passwordError) validatePassword(e.target.value);
           }}
           onBlur={(e) => validatePassword(e.target.value)}
-          placeholder="Password"
+          placeholder="yasir@123"
           className={`border w-full p-2 rounded-md pr-10 ${
             passwordError ? "border-red-500" : ""
           }`}
