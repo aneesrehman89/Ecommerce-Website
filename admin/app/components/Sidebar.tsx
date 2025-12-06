@@ -50,9 +50,9 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="hidden md:block w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 z-40">
+    <aside className="hidden md:block w-64 bg-white border-r border-gray-200 h-[calc(100vh-64px)] fixed left-0 top-[64px] z-40">
       {/* Navigation */}
-      <nav className="p-4 pt-6">
+      <nav className="p-4 pt-4">
         <ul className="space-y-1">
           {navItems.map((item) => (
             <li key={item.id}>

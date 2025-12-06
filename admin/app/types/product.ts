@@ -8,16 +8,15 @@ export enum ProductStatus {
 
 export enum ProductCategory {
   DEFAULT = "Default",
-  CLOTHING = "Clothing",
-  ACCESSORIES = "Accessories",
-  FOOTWEAR = "Footwear",
-  ELECTRONICS = "Electronics"
+  BRIDAL_LEHENGAS = "Bridal Lehengas",
+  BRIDAL_MAXI_GOWNS = "Bridal Maxi/Gowns",
+  BRIDAL_SHARARA_GHARARA = "Bridal Sharara/Gharara",
+  BRIDAL_SAREES = "Bridal Sarees",
+  BRIDAL_SUITS = "Bridal Suits"
 }
 
 export enum CurrencyType {
-  USD = "USD ($)",
-  EUR = "EUR (€)",
-  GBP = "GBP (£)"
+  PKR = "PKR (₨)"
 }
 
 export enum StockUnit {
@@ -38,6 +37,7 @@ export interface MediaFile {
 export interface ProductFormData {
   title: string;
   price: number;
+  discountPrice?: number;
   currency: CurrencyType;
   description: string;
   sku: string;

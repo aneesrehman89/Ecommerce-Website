@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { ProductListItem } from "@/app/types/product";
 import StatusBadge from "./StatusBadge";
@@ -9,9 +10,11 @@ interface ProductsTableRowProps {
   product: ProductListItem;
   isSelected: boolean;
   onSelect: (id: string) => void;
+  onDelete?: (id: string) => void;
 }
 
-export default function ProductsTableRow({ product, isSelected, onSelect }: ProductsTableRowProps) {
+export default function ProductsTableRow({ product, isSelected, onSelect, onDelete }: ProductsTableRowProps) {
+  const [showMenu, setShowMenu] = useState(false);
   const getStockColor = () => {
     if (product.stockStatus === 'out') return 'text-red-600';
     if (product.stockStatus === 'low') return 'text-yellow-600';
@@ -48,10 +51,35 @@ export default function ProductsTableRow({ product, isSelected, onSelect }: Prod
       <td className="px-6 py-4">
         <StatusBadge status={product.status} />
       </td>
-      <td className="px-6 py-4">
-        <button className="p-1 hover:bg-gray-100 rounded text-gray-600">
+      <td className="px-6 py-4 relative">
+        <button 
+          onClick={() => setShowMenu(!showMenu)}
+          className="p-1 hover:bg-gray-100 rounded text-gray-600"
+        >
           <MoreVerticalIcon width={20} height={20} />
         </button>
+        
+        {showMenu && (
+          <>
+            <div 
+              className="fixed inset-0 z-10" 
+              onClick={() => setShowMenu(false)}
+            />
+            <div className="absolute right-0 top-full mt-1 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-20">
+              <button
+                onClick={() => {
+                  if (onDelete) {
+                    onDelete(product.id);
+                  }
+                  setShowMenu(false);
+                }}
+                className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 transition-colors"
+              >
+                Delete
+              </button>
+            </div>
+          </>
+        )}
       </td>
     </tr>
   );

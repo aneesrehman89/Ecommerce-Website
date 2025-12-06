@@ -17,7 +17,8 @@ export default function CreateProductModal({
   const [formData, setFormData] = useState<ProductFormData>({
     title: initialData?.title || "",
     price: initialData?.price || 0,
-    currency: initialData?.currency || CurrencyType.USD,
+    discountPrice: initialData?.discountPrice,
+    currency: initialData?.currency || CurrencyType.PKR,
     description: initialData?.description || "",
     sku: initialData?.sku || "",
     status: initialData?.status || ProductStatus.ACTIVE,

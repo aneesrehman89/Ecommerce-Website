@@ -28,10 +28,10 @@ export default function FiltersBar({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
-      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-between items-stretch sm:items-center gap-3 sm:gap-y-4 sm:gap-x-6">
-        {/* Search Input */}
-        <div className="w-full sm:flex-1 sm:min-w-[200px] sm:max-w-md relative">
+    <div className="bg-white rounded-lg border border-gray-200 p-3 sm:p-4 mb-6 overflow-hidden">
+      <div className="flex flex-col gap-3">
+        {/* Search Input - Full width on all screens */}
+        <div className="w-full relative">
           <SearchIcon
             width={18}
             height={18}
@@ -46,12 +46,14 @@ export default function FiltersBar({
           />
         </div>
 
-        <div className="flex gap-6">
-          {/* Date Range */}
-          <div className="relative">
-            <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50">
+        {/* Filters Row - Scrollable on mobile, wrapped on larger screens */}
+        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap -mx-3 px-3 sm:mx-0 sm:px-0">
+          {/* Date Range - Hidden on mobile */}
+          <div className="relative flex-shrink-0 hidden sm:block">
+            <button className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 whitespace-nowrap">
               <CalendarIcon width={18} height={18} className="text-gray-500" />
-              <span>12 Sep - 28 Oct 2024</span>
+              <span className="hidden lg:inline">12 Sep - 28 Oct 2024</span>
+              <span className="lg:hidden">Date Range</span>
               <ChevronDownIcon
                 width={16}
                 height={16}
@@ -61,14 +63,14 @@ export default function FiltersBar({
           </div>
 
           {/* Status Dropdown */}
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             <select
               value={selectedStatus}
               onChange={(e) => {
                 setSelectedStatus(e.target.value);
                 onStatusChange(e.target.value);
               }}
-              className="appearance-none px-4 py-2 pr-10 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
+              className="appearance-none px-3 sm:px-4 py-2 pr-8 sm:pr-10 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer whitespace-nowrap"
             >
               {statuses.map((status) => (
                 <option key={status} value={status}>
@@ -79,19 +81,19 @@ export default function FiltersBar({
             <ChevronDownIcon
               width={16}
               height={16}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
+              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
             />
           </div>
 
           {/* Category Dropdown */}
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             <select
               value={selectedCategory}
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
                 onCategoryChange(e.target.value);
               }}
-              className="appearance-none px-4 py-2 pr-10 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
+              className="appearance-none px-3 sm:px-4 py-2 pr-8 sm:pr-10 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer whitespace-nowrap"
             >
               {categories.map((category) => (
                 <option key={category} value={category}>
@@ -102,12 +104,12 @@ export default function FiltersBar({
             <ChevronDownIcon
               width={16}
               height={16}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
+              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
             />
           </div>
 
           {/* Filter Button */}
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50">
+          <button className="flex items-center gap-2 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 flex-shrink-0">
             <FilterIcon width={18} height={18} className="text-gray-500" />
             <span>Filter</span>
           </button>

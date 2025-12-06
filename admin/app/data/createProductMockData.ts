@@ -11,10 +11,11 @@ export const mockRootProps = {
 // Initial form data for the product creation form
 export const mockFormData = {
   title: "Classic Leather Bomber Jacket" as const,
-  price: 42.99,
-  currency: CurrencyType.USD,
+  price: 125000,
+  discountPrice: 99000,
+  currency: CurrencyType.PKR,
   description: "Timeless leather bomber jacket featuring a sleek black design. Made from premium quality leather with a comfortable fit and durable construction. Perfect for casual outings or a stylish layer for cooler weather. Available in multiple sizes." as const,
-  sku: "LBJ-2024-BLK" as const,
+  sku: "BRD-123456-A1B2" as const,
   status: ProductStatus.ACTIVE,
   category: ProductCategory.DEFAULT,
   stockQuantity: 50,

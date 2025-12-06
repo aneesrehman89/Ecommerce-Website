@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
+import ClientNavbar from "@/components/ClientNavbar"; 
 import SocialMediaFloat from "@/components/SocialMediaFloat";
 import { Providers } from "./store/providers";
 
@@ -15,7 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" 
+    suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
         <Providers>
           <ClientNavbar />
