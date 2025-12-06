@@ -42,16 +42,16 @@ export default function Navbar({ onLogout }: NavbarProps) {
   ];
 
   return (
-    <nav className="w-screen bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+    <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      <div className="flex items-center justify-between px-3 sm:px-4 lg:px-6 py-2 sm:py-3">
         {/* Logo */}
         <Link href="/dashboard" className="flex-shrink-0">
           <Image
             src="/amLogo3.png"
             alt="Admin Logo"
-            width={150}
-            height={60}
-            className="h-10 sm:h-12 w-auto"
+            width={120}
+            height={48}
+            className="h-8 sm:h-10 w-auto"
             priority
           />
         </Link>
@@ -59,7 +59,7 @@ export default function Navbar({ onLogout }: NavbarProps) {
         {/* Logout Button */}
         <button
           onClick={onLogout}
-          className="px-4 sm:px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+          className="px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-xs sm:text-sm whitespace-nowrap"
         >
           Logout
         </button>

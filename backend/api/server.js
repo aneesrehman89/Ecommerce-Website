@@ -1,9 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 import connectDB from "../config/db.js";
 import userRoutes from "../routes/userRoutes.js";
 import paymentRoutes from "../routes/paymentRoutes.js";
+import productRoutes from "../routes/productRoutes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 connectDB();
@@ -12,7 +18,8 @@ const app = express();
 const allowedOrigins = [
   "https://amboutique.pk",
   "https://www.amboutique.pk",             
-  "http://localhost:3000"                  
+  "http://localhost:3000",
+  "http://localhost:3001"
 ];
 
 // CORS configuration - must be before routes
@@ -38,9 +45,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Serve static files for uploads
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 app.get("/", (req, res) => res.send("API is running..."));
 app.use("/api/users", userRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/products", productRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

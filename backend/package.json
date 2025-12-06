@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon api/server.js",
     "start": "node api/server.js",
+    "seed": "node utils/seedProducts.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

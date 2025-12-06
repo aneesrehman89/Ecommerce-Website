@@ -6,9 +6,23 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "i.pravatar.cc",
-        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "5000",
+        pathname: "/uploads/**",
+      }
     ],
   },
 };

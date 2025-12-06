@@ -135,13 +135,12 @@ export const mockProducts: ProductListItem[] = [
 
 export const categories = [
   "All Categories",
-  "Sunglass",
-  "Clothes",
-  "Beauty",
-  "Cap",
-  "Shoes",
-  "Electronic",
-  "Watch"
+  "Default",
+  "Bridal Lehengas",
+  "Bridal Maxi/Gowns",
+  "Bridal Sharara/Gharara",
+  "Bridal Sarees",
+  "Bridal Suits"
 ];
 
 export const statuses = [
