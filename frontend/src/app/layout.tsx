@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ClientNavbar from "@/components/ClientNavbar"; // Import the new client component
+import ClientNavbar from "@/components/ClientNavbar"; 
 import SocialMediaFloat from "@/components/SocialMediaFloat";
 import { Providers } from "./store/providers";
 
