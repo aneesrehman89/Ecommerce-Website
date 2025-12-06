@@ -41,9 +41,9 @@ export default function ProductCard({ product, isSelected, onSelect, onDelete }:
         
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <div className="flex-1">
-              <h3 className="text-sm font-semibold text-gray-900 truncate">{product.name}</h3>
-              <p className="text-xs text-gray-500 mt-1">{product.category}</p>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 break-words">{product.name}</h3>
+              <p className="text-xs text-gray-500 mt-1 truncate">{product.category}</p>
             </div>
             <div className="relative">
               <button 
