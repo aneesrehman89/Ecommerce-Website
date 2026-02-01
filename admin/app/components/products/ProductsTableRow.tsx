@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ProductListItem } from "@/app/types/product";
 import StatusBadge from "./StatusBadge";
 import MoreVerticalIcon from "../icons/MoreVerticalIcon";
+import { formatPrice } from "@/lib/utils";
 
 interface ProductsTableRowProps {
   product: ProductListItem;
@@ -47,7 +48,7 @@ export default function ProductsTableRow({ product, isSelected, onSelect, onDele
       <td className={`px-6 py-4 text-sm font-medium ${getStockColor()}`}>
         {product.stock}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-900">${product.price}</td>
+      <td className="px-6 py-4 text-sm text-gray-900">Rs. {formatPrice(product.price)}</td>
       <td className="px-6 py-4">
         <StatusBadge status={product.status} />
       </td>

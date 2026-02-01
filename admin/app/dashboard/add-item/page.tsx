@@ -21,7 +21,7 @@ export default function AddItemPage() {
     sku: "",
     status: ProductStatus.ACTIVE,
     category: ProductCategory.DEFAULT,
-    stockQuantity: 0,
+    stockQuantity: undefined,
     stockUnit: StockUnit.UNITS,
     tags: [],
     showOnStoreFront: true,

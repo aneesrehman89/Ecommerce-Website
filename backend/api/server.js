@@ -19,7 +19,8 @@ const allowedOrigins = [
   "https://amboutique.pk",
   "https://www.amboutique.pk",             
   "http://localhost:3000",
-  "http://localhost:3001"
+  "http://localhost:3001",
+  "https://ecommerce-website-admin-kappa.vercel.app"
 ];
 
 // CORS configuration - must be before routes
