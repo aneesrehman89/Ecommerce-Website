@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientNavbar from "@/components/ClientNavbar"; 
 import SocialMediaFloat from "@/components/SocialMediaFloat";
+import PromotionalBanner from "./components/PromotionalBanner";
 import { Providers } from "./store/providers";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
     suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
         <Providers>
+          <PromotionalBanner />
           <ClientNavbar />
           {children}
           <SocialMediaFloat />

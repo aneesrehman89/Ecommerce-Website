@@ -12,7 +12,7 @@ export default function MediaUploadSection({
   onAddMedia,
   onRemoveMedia,
   onSetPrimary,
-  maxFiles = 5
+  maxFiles = 7
 }: MediaUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const primaryMedia = mediaFiles.find((m) => m.isPrimary) || mediaFiles[0];

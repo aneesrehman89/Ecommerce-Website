@@ -55,7 +55,7 @@ export default function CreateProductModal({
     if (!formData.sku.trim()) {
       newErrors.sku = "SKU is required";
     }
-    if (formData.stockQuantity < 0) {
+    if (formData.stockQuantity !== undefined && formData.stockQuantity < 0) {
       newErrors.stockQuantity = "Stock quantity cannot be negative";
     }
 

@@ -5,6 +5,7 @@ import TagInput from "./TagInput";
 import MediaUploadSection from "./MediaUploadSection";
 import type { ProductFormData, MediaFile } from "../../types/product";
 import { ProductStatus, ProductCategory, CurrencyType, StockUnit } from "../../types/product";
+import { formatPrice, calculateDiscountPercentage } from "@/lib/utils";
 
 interface CreateProductFormProps {
   initialData?: Partial<ProductFormData>;
@@ -38,7 +39,7 @@ export default function CreateProductForm({
     sku: initialData?.sku || generateSKU(),
     status: initialData?.status || ProductStatus.ACTIVE,
     category: initialData?.category || ProductCategory.DEFAULT,
-    stockQuantity: initialData?.stockQuantity || 0,
+    stockQuantity: initialData?.stockQuantity ?? undefined,
     stockUnit: initialData?.stockUnit || StockUnit.UNITS,
     tags: initialData?.tags || [],
     showOnStoreFront: initialData?.showOnStoreFront ?? true,
@@ -62,7 +63,7 @@ export default function CreateProductForm({
     if (!formData.sku.trim()) {
       newErrors.sku = "SKU is required";
     }
-    if (formData.stockQuantity < 0) {
+    if (formData.stockQuantity !== undefined && formData.stockQuantity < 0) {
       newErrors.stockQuantity = "Stock quantity cannot be negative";
     }
 
@@ -158,12 +159,12 @@ export default function CreateProductForm({
             </label>
             <input
               type="text"
-              value={formData.price || ''}
+              value={formData.price ? formatPrice(formData.price) : ''}
               onChange={(e) => {
                 const value = e.target.value.replace(/[^0-9]/g, '');
                 setFormData({ ...formData, price: value ? parseInt(value) : 0 });
               }}
-              placeholder="125000"
+              placeholder="125,000"
               className={`w-full px-3 py-2.5 border ${errors.price ? 'border-red-500' : 'border-gray-300'} rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
             />
             {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price}</p>}
@@ -176,15 +177,20 @@ export default function CreateProductForm({
             </label>
             <input
               type="text"
-              value={formData.discountPrice || ''}
+              value={formData.discountPrice ? formatPrice(formData.discountPrice) : ''}
               onChange={(e) => {
                 const value = e.target.value.replace(/[^0-9]/g, '');
                 setFormData({ ...formData, discountPrice: value ? parseInt(value) : undefined });
               }}
-              placeholder="99000"
+              placeholder="99,000"
               className={`w-full px-3 py-2.5 border ${errors.discountPrice ? 'border-red-500' : 'border-gray-300'} rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
             />
             {errors.discountPrice && <p className="text-red-500 text-xs mt-1">{errors.discountPrice}</p>}
+            {formData.price > 0 && formData.discountPrice && formData.discountPrice < formData.price && (
+              <p className="text-green-600 text-xs mt-1">
+                Discount: {calculateDiscountPercentage(formData.price, formData.discountPrice)}% off
+              </p>
+            )}
           </div>
 
           {/* Description */}
@@ -270,8 +276,8 @@ export default function CreateProductForm({
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="number"
-                value={formData.stockQuantity}
-                onChange={(e) => setFormData({ ...formData, stockQuantity: parseInt(e.target.value) || 0 })}
+                value={formData.stockQuantity ?? ''}
+                onChange={(e) => setFormData({ ...formData, stockQuantity: e.target.value ? parseInt(e.target.value) : undefined })}
                 placeholder="50"
                 className={`flex-1 px-3 py-2.5 border ${errors.stockQuantity ? 'border-red-500' : 'border-gray-300'} rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
               />
@@ -306,6 +312,7 @@ export default function CreateProductForm({
           onAddMedia={handleAddMedia}
           onRemoveMedia={handleRemoveMedia}
           onSetPrimary={handleSetPrimary}
+          maxFiles={7}
         />
       </div>
 

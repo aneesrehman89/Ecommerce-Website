@@ -1,15 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeroBanner from "./components/HeroBanner";
 import FilterSortBar from "./components/FilterSortBar";
 import ProductCard from "./components/ProductCard";
 import Footer from "./components/Footer";
 import { mockHomePageData } from "./data/homePageMockData";
+import { productApi } from "./lib/api";
+import { transformBackendProducts } from "./lib/productTransform";
+import type { Product } from "@/types/product";
 
 export default function Home() {
   const [sortValue, setSortValue] = useState("date-new-old");
-  const [products, setProducts] = useState(mockHomePageData.products);
+  const [products, setProducts] = useState<Product[]>(mockHomePageData.products);
+  const [loading, setLoading] = useState(false);
+
+  // Home page only shows static mock products (not fetching from backend)
 
   const handleSortChange = (value: string) => {
     setSortValue(value);
@@ -17,11 +23,10 @@ export default function Home() {
 
     switch (value) {
       case "date-new-old":
-        // Keep original order
-        sortedProducts = [...mockHomePageData.products];
+        // Keep current order (newest first from API)
         break;
       case "date-old-new":
-        sortedProducts = [...mockHomePageData.products].reverse();
+        sortedProducts.reverse();
         break;
       case "price-low-high":
         sortedProducts.sort((a, b) => a.salePrice - b.salePrice);
@@ -46,7 +51,7 @@ export default function Home() {
 
         {/* Product Grid */}
         <div className="py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

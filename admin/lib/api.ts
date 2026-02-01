@@ -28,7 +28,7 @@ export const productApi = {
       formData.append('sku', productData.sku);
       formData.append('status', productData.status);
       formData.append('category', productData.category);
-      formData.append('stockQuantity', productData.stockQuantity.toString());
+      formData.append('stockQuantity', (productData.stockQuantity ?? 0).toString());
       formData.append('stockUnit', productData.stockUnit);
       formData.append('tags', JSON.stringify(productData.tags));
       formData.append('showOnStoreFront', productData.showOnStoreFront.toString());

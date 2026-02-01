@@ -1,65 +1,115 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {
-      colors: {
-        'saya-beige': '#f5e8d3',
-        'saya-cream': '#faf6f0',
-        'saya-black': '#1a1a1a',
-        'saya-gray': '#6b6b6b',
-        'saya-light-gray': '#f5f5f5',
-        'saya-red': '#ef4444',
-        'saya-gold': '#d4af37',
-        // Checkout page colors
-        'alibaba-orange': '#FF6A00',
-        'alibaba-orange-hover': '#E65F00',
-        'alibaba-orange-light': '#FFF5F0',
-        'checkout-gray-50': '#FAFAFA',
-        'checkout-gray-100': '#F5F5F5',
-        'checkout-gray-200': '#E5E5E5',
-        'checkout-gray-300': '#D4D4D4',
-        'checkout-gray-600': '#525252',
-        'checkout-gray-900': '#171717',
-        'security-green': '#16A34A',
-        'security-green-light': '#F0FDF4',
-        'border-default': '#E5E5E5',
-        'border-selected': '#FF6A00',
-      },
-      fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'serif': ['Playfair Display', 'serif'],
-      },
-      fontSize: {
-        'xs': '0.75rem',
-        'sm': '0.875rem',
-        'base': '1rem',
-        'lg': '1.125rem',
-        'xl': '1.25rem',
-        '2xl': '1.5rem',
-        '3xl': '1.875rem',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
-      },
-      boxShadow: {
-        'card': '0 2px 8px rgba(0, 0, 0, 0.08)',
-        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.12)',
-        'checkout-card': '0 1px 3px rgba(0, 0, 0, 0.1)',
-        'checkout-card-hover': '0 2px 8px rgba(0, 0, 0, 0.15)',
-        'selected': '0 0 0 2px #FF6A00',
-      },
-      borderRadius: {
-        'checkout-card': '8px',
-        'checkout-button': '6px',
-        'checkout-badge': '4px',
-      },
-    },
+  	extend: {
+  		colors: {
+  			'saya-beige': '#f5e8d3',
+  			'saya-cream': '#faf6f0',
+  			'saya-black': '#1a1a1a',
+  			'saya-gray': '#6b6b6b',
+  			'saya-light-gray': '#f5f5f5',
+  			'saya-red': '#ef4444',
+  			'saya-gold': '#d4af37',
+  			'alibaba-orange': '#FF6A00',
+  			'alibaba-orange-hover': '#E65F00',
+  			'alibaba-orange-light': '#FFF5F0',
+  			'checkout-gray-50': '#FAFAFA',
+  			'checkout-gray-100': '#F5F5F5',
+  			'checkout-gray-200': '#E5E5E5',
+  			'checkout-gray-300': '#D4D4D4',
+  			'checkout-gray-600': '#525252',
+  			'checkout-gray-900': '#171717',
+  			'security-green': '#16A34A',
+  			'security-green-light': '#F0FDF4',
+  			'border-default': '#E5E5E5',
+  			'border-selected': '#FF6A00',
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		fontFamily: {
+  			sans: [
+  				'Inter',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			serif: [
+  				'Playfair Display',
+  				'serif'
+  			]
+  		},
+  		fontSize: {
+  			xs: '0.75rem',
+  			sm: '0.875rem',
+  			base: '1rem',
+  			lg: '1.125rem',
+  			xl: '1.25rem',
+  			'2xl': '1.5rem',
+  			'3xl': '1.875rem'
+  		},
+  		spacing: {
+  			'18': '4.5rem',
+  			'88': '22rem',
+  			'128': '32rem'
+  		},
+  		boxShadow: {
+  			card: '0 2px 8px rgba(0, 0, 0, 0.08)',
+  			'card-hover': '0 4px 12px rgba(0, 0, 0, 0.12)',
+  			'checkout-card': '0 1px 3px rgba(0, 0, 0, 0.1)',
+  			'checkout-card-hover': '0 2px 8px rgba(0, 0, 0, 0.15)',
+  			selected: '0 0 0 2px #FF6A00'
+  		},
+  		borderRadius: {
+  			'checkout-card': '8px',
+  			'checkout-button': '6px',
+  			'checkout-badge': '4px',
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

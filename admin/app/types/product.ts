@@ -43,7 +43,7 @@ export interface ProductFormData {
   sku: string;
   status: ProductStatus;
   category: ProductCategory;
-  stockQuantity: number;
+  stockQuantity?: number;
   stockUnit: StockUnit;
   tags: string[];
   showOnStoreFront: boolean;
